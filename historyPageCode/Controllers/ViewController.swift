@@ -15,10 +15,13 @@ class ViewController: UIViewController {
     var bars: UIButton!
     var capsule: UIButton!
     var tableView: UITableView!
+    var activityIndicator: UIActivityIndicatorView!
+    
     var customers = [Customer(time: "3:00pm", isFavorite: true, imageName: "MTN Mobile Money", name1: "Richard Blankson", name2: "George Koomson", amount: "500", currency: "GHS", contact: "0244040112"), Customer(time: "4:00pm", isFavorite: false, imageName: "images", name1: "Absa Bank", name2: "", amount: "500", currency: "GHS", contact: "054327389"), Customer(time: "5:00pm", isFavorite: false, imageName: "images", name1: "Richard Blankson", name2: "George Koomson", amount: "500", currency: "GHS", contact: "054329384")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         view.backgroundColor = .white
         let myCell = UINib(nibName: String(describing: transactionTableViewCell.self), bundle: nil)
         
@@ -92,15 +95,22 @@ class ViewController: UIViewController {
        button.layer.shadowRadius = 3
         view.addSubview(button)
         
-   
+       
         
         
+//        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: ViewController.self, selector: #selector(showActivity), userInfo: nil, repeats: false)
         
+        
+       
+        
+//        activityIndicator.stopAnimating()
         
         setUpConstraintsForLayouts()
     }
     
+
     
+
     
     
     func setUpConstraintsForLayouts(){
@@ -146,7 +156,10 @@ class ViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
             
         ])
+    
+        
     }
+    
     
 
 
@@ -177,6 +190,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
     
     
 }
